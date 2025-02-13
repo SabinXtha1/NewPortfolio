@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import SplashCursor from './effect/splash';
 import ShinyText from './effect/sinny';
-import { usePathname } from 'next/navigation';
+import { redirect, usePathname } from 'next/navigation';
 import LogoWall from './effect/logo';
 import reactbits from './Terminal/io.png';
 
@@ -35,23 +35,23 @@ const Page = () => {
         {/* Header */}
         <header className="mt-10 flex justify-between items-center w-full">
           {/* Name & Hand Icon */}
-          <h1 className="flex items-center gap-2 text-xl font-bold tracking-widest text-gray-300">
+          <h1 className="flex items-center gap-2 text-xl font-bold tracking-widest text-gray-300" onClick={()=>{redirect('/')}} >
             <Hand className="text-red-500 drop-shadow-lg "style={{ animation: "wave 1.5s ease-in-out infinite" }} />
             <div className="flex flex-col -rotate-2">
-              <span className="text-2xl font-extrabold bg-gradient-to-r from-red-400 to-yellow-400 text-transparent bg-clip-text ">
+              <span className="text-2xl font-extrabold text-white text-transparent bg-clip-text font-edu ">
                 Sabin Nayaju
               </span>
-              <span className="h-[2px] bg-red-500 w-[60%] lg:w-full md:w-full rounded-full mt-2"></span>
+              <span className="h-[2px] bg-red-500 w-[100%] lg:w-full md:w-full rounded-full mt-2"></span>
             </div>
           </h1>
 
           {/* Terminal Icon */}
-          <Link href="/Terminal">
+          <Link href="/Terminal" className='hidden lg:block md:block' >
             <CodeXml className="w-12 h-12 text-red-500 drop-shadow-xl scale-90 hover:scale-110 transition-all duration-200" />
           </Link>
 
           {/* Social Icons */}
-          <div className="flex gap-4">
+          <div className="hidden lg:flex md:flex   gap-4 ">
             <Link href="https://www.linkedin.com/in/sabin-nayaju-72438a204/">
               <FaLinkedin className="w-10 h-10 text-blue-500 drop-shadow-md transition-all duration-200 hover:scale-110 hover:text-blue-400" />
             </Link>
