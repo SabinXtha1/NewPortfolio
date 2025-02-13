@@ -24,18 +24,10 @@ const Page = () => {
         
         {/* Name & Hand Icon */}
         <h1 className="flex items-center gap-2 text-xl font-bold tracking-widest text-gray-300">
-          <Hand className="text-red-500 drop-shadow-lg animate-waving-hand" />
+          <Hand className="text-red-500 drop-shadow-lg " style={{ animation: "wave 1.5s ease-in-out infinite" }} />
           <div className="flex flex-col -rotate-2">
             <span className="text-2xl font-extrabold bg-gradient-to-r from-red-400 to-yellow-400 text-transparent bg-clip-text">
-              <TextPressure
-                text="Sabin Nayaju"
-                flex
-                italic
-                stroke
-                textColor="#ffffff"
-                strokeColor="#ff0000"
-                minFontSize={36}
-              />
+             Sabin Nayaju
             </span>
             <span className="h-[2px] bg-red-400 w-full rounded-full"></span>
           </div>
@@ -58,6 +50,8 @@ const Page = () => {
       </header>
 
       {/* Hero Section */}
+      <div className='h-[500px] flex justify-center items-center'>
+
       <section className="mt-20 text-center">
         <h2 className="text-4xl md:text-5xl lg:text-[70px] font-extrabold leading-tight">
           <span className="text-gray-300">Crafting </span>
@@ -82,6 +76,7 @@ const Page = () => {
         </div>
        
       </section>
+      </div>
     </div>
   );
 };
