@@ -62,7 +62,7 @@ const Page = () => {
         </header>
 
         {/* Hero Section */}
-        <div className="h-[600px] flex justify-center items-center lg:h-[500px]">
+        <div className="h-[700px] flex justify-center items-center md:h-[600px] lg:h-[500px]">
           <section className="text-center">
             <h2 className="text-5xl md:text-6xl lg:text-[70px] font-extrabold leading-tight">
               <span className="text-gray-300">Crafting </span>
@@ -90,7 +90,7 @@ const Page = () => {
       </div>
 
       {/* Logo Wall */}
-      <div className="mt-10">
+      <div className="">
         <LogoWall
           items={logoImgs}
           direction="horizontal"
