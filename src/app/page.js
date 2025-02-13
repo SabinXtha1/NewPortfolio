@@ -6,12 +6,29 @@ import SplashCursor from './effect/splash';
 import TextPressure from './effect/text';
 import ShinyText from './effect/sinny';
 import { usePathname } from 'next/navigation';
-
+import LogoWall from './effect/logo';
+import reactbits from './Terminal/io.png'
 const Page = () => {
   const pathname = usePathname()
-  return (
-    <div className="relative min-h-screen text-white flex flex-col px-6 md:px-16 overflow-hidden"  style={{
-      backgroundImage:`radial-gradient(rectangle at 0.5px 0.5px ,rgba(6,128,212,0.2) 1px,transparent 0 ) `,
+  const logoImgs = [
+   
+   
+    { imgUrl: reactbits, altText: "Devloper" },
+    { imgUrl: reactbits, altText: "Designing" },
+    { imgUrl: reactbits, altText: "Graphics" }
+  ];
+  return (<div className="relative min-h-screen text-white flex flex-col" 
+    style={{
+      backgroundColor: "black", 
+      backgroundImage: `radial-gradient(circle, rgba(6,128,212,0.2) 1px, transparent 1px)`,
+      backgroundSize: "20px 20px",
+      backgroundRepeat: "repeat",
+    }}>
+  
+  
+
+    <div className=" px-6 md:px-16 overflow-hidden"  style={{
+      backgroundImage:`radial-gradient(circle at 0.5px 0.5px ,rgba(6,128,212,0.2) 1px,transparent 0 ) `,
       backgroundSize: '8px 8px'
       ,backgroundRepeat:'repeat',backgroundColor:'black'
     }}>
@@ -26,10 +43,10 @@ const Page = () => {
         <h1 className="flex items-center gap-2 text-xl font-bold tracking-widest text-gray-300">
           <Hand className="text-red-500 drop-shadow-lg " style={{ animation: "wave 1.5s ease-in-out infinite" }} />
           <div className="flex flex-col -rotate-2">
-            <span className="text-2xl font-extrabold bg-gradient-to-r from-red-400 to-yellow-400 text-transparent bg-clip-text">
+            <span className="text-2xl font-extrabold bg-gradient-to-r from-red-400 to-yellow-400 text-transparent bg-clip-text font-edu text-white">
              Sabin Nayaju
             </span>
-            <span className="h-[2px] bg-red-400 w-full rounded-full"></span>
+            <span className="h-[2px] bg-red-500 w-full rounded-full  mt-2"></span>
           </div>
         </h1>
 
@@ -50,7 +67,7 @@ const Page = () => {
       </header>
 
       {/* Hero Section */}
-      <div className='h-[500px] flex justify-center items-center'>
+      <div className='h-[500px] tracking-widest flex justify-center items-center lg:h-[500px]'>
 
       <section className="mt-20 text-center">
         <h2 className="text-4xl md:text-5xl lg:text-[70px] font-extrabold leading-tight">
@@ -77,6 +94,15 @@ const Page = () => {
        
       </section>
       </div>
+    </div>
+      <LogoWall  items={logoImgs}
+    direction='horizontal'
+    pauseOnHover={true}
+    size='clamp(8rem, 1rem + 20vmin, 25rem)'
+    duration='10s'
+    bgColor='#060606'
+    bgAccentColor='#111111'
+    className='' />  
     </div>
   );
 };
