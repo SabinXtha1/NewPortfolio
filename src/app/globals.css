@@ -17,9 +17,6 @@
 }.font-edu {
   font-family: "Edu AU VIC WA NT Arrows", serif;
 }
-body{
-  box-sizing: border-box;
-}
 
 @keyframes float {
   0%,
@@ -80,6 +77,25 @@ body {
   background-position: 0px 0px;
   opacity: 0.9;
 }
+.sn {
+  background-image: url('/io.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: black;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid black;
+  box-shadow: 0px 0px 15px ; /* Red Glow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.sn:hover {
+  transform: scale(1.1) rotate(5deg); /* Slight Zoom + Rotate */
+  box-shadow: 0px 0px 25px rgba(255, 0, 0, 0.9); /* More Intense Glow */
+}
+
 .load{
   width: 170px;
   height: 170px;
@@ -183,4 +199,15 @@ text-shadow: 2px 2px 5px blue;
 }
 .shadow{
   -webkit-filter: drop-shadow(2px 2px 5px red);
+}
+.social-icon {
+  font-size: 1.8rem; /* Adjust icon size */
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: white; /* Default color */
+  
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  color: #38bdf8; /* Tailwind cyan-400 */
 }
