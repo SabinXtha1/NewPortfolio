@@ -42,6 +42,10 @@ const page = () => {
                 "Content-Type":'application/json'
             }
         })
+        if(!res.ok){
+          setloading(false)
+          return  toast.error('Message Sent Failed')
+        }
         toast.success('Message Send Succesfully')
         setloading(false)
         setFormData({ name: '', email: '', message: '' })

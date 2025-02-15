@@ -20,6 +20,7 @@ export async function POST(req){
         pass:process.env.PASS
     }
 })
+
 const mailOptions={
     from:email,
     to:process.env.EMAIL_FROM,
@@ -34,7 +35,7 @@ await transpoter.sendMail(mailOptions)
 
 return NextResponse.json({ success: "Message sent successfully" }, { status: 200 })
 }catch{
-    return NextResponse(({ error: "Error sending email" }), { status: 500 });
+    return NextResponse.json({ error: "Error sending email" }, { status: 500 });
 }
 
 }
