@@ -1,5 +1,5 @@
 'use client'
-import { Dot, Star } from 'lucide-react'
+import { Dot, Loader2, Star } from 'lucide-react'
 import React from 'react'
 
 import { Mail, User, MessageCircle, Send } from 'lucide-react';
@@ -10,8 +10,10 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import ShinyText from '../effect/sinny';
 import FAQ from '../components/Faq';
+import toast from 'react-hot-toast';
 
 const page = () => {
+    const [loading, setloading] = useState(false)
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   
 
@@ -20,10 +22,34 @@ const page = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =async (e) => {
     e.preventDefault();
-   
-    // Implement API call for secure form submission
+     try{
+        setloading(true)
+        if(!formData.name||!formData.email||!formData.message){
+            setloading(false)
+            return  toast.error('Fill all Fields')
+        }
+        const res = await fetch('api/email',{
+            method:'POST',
+            cache:'no-cache',
+            body:JSON.stringify({
+                name:formData.name,
+                email:formData.email,
+                msg:formData.message
+            }),
+            headers:{
+                "Content-Type":'application/json'
+            }
+        })
+        toast.success('Message Send Succesfully')
+        setloading(false)
+        setFormData({ name: '', email: '', message: '' })
+     }catch{
+        toast.error('Message Sent Failed')
+        setloading(false)
+           
+     }
   };
 
   return (
@@ -31,7 +57,7 @@ const page = () => {
                 <div className='w-screen   flex items-center justify-center flex-col font-serif gap-10 lg:h-screen md:h-screen '
                 style={{
                     backgroundColor: "black",
-                    backgroundImage: `radial-gradient(circle, rgba(6,128,212,0.2) 1px, transparent 1px)`,
+                    backgroundImage: `radial-gradient(circle, rgba(6,128,212,0.4) 1px, transparent 1px)`,
                     backgroundSize: "20px 20px",
                     backgroundRepeat: "repeat",
                 }}>
@@ -72,8 +98,10 @@ const page = () => {
                     <textarea name='message' placeholder='Enter Your Message'  value={formData.message} onChange={handleChange} className='bg-black rounded border p-2' />
 
                 </div>
-                <button className='border rounded-xl py-3 '>
-                    Submit
+                <button className='border rounded-xl py-3 flex items-center justify-center'>
+                   {
+                    loading? <Loader2 className='animate-spin'/>:'Submit'
+                   }
                 </button>
         </form>
        

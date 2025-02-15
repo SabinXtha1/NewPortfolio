@@ -22,7 +22,7 @@ const Page = () => {
       className="relative min-h-screen text-white flex flex-col"
       style={{
         backgroundColor: "black",
-        backgroundImage: `radial-gradient(circle, rgba(6,128,212,0.2) 1px, transparent 1px)`,
+        backgroundImage: `radial-gradient(circle, rgba(6,128,212,0.4) 1px, transparent 1px)`,
         backgroundSize: "20px 20px",
         backgroundRepeat: "repeat",
       }}
@@ -46,7 +46,7 @@ const Page = () => {
           </h1>
 
           {/* Terminal Icon */}
-          <Link href="/Terminal" className='hidden lg:block md:block' >
+          <Link href="/Terminal" className=' lg:block md:block' >
             <CodeXml className="w-12 h-12 text-red-500 drop-shadow-xl scale-90 hover:scale-110 transition-all duration-200" />
           </Link>
 
