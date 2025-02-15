@@ -2,6 +2,8 @@
 import Link from 'next/link';
 import React from 'react'
 import { FaGithub,FaLinkedin } from "react-icons/fa";
+import CircularText from '../effect/circular';
+import { ArrowRight } from 'lucide-react';
 const Personal = () => {
   return (
   <>
@@ -9,16 +11,16 @@ const Personal = () => {
   <div className='w-[210px] h-[210px] rounded-full flex items-center justify-center load scale-20 hover:scale-100'>
 
   </div>
-  <div className='  gap-8 flex  items-center flex-col md:flex-row lg:flex-row'>
-
-     <div className='bio min-w-[170px] h-[170px] rounded-[50%] scale-95 overflow-auto hover:scale-100 an'>
-           
+  <div className='  gap-8 flex  items-center flex-col md:flex-row lg:flex-row relative'>
+          
+     <div className='bio min-w-[170px] h-[170px] rounded-[50%] scale-95 overflow-hidden hover:scale-100 an  relative'>  
+    
      </div>
      <div className='flex flex-col  m-2 gap-2 '>
        <span className='text-3xl font-bold font-mono te text-blue-100 '>
         Sabin Nayaju🪼 
        </span>
-       <span className='te opacity-90 flex '>
+       <span className='te opacity-90 flex font-sans'>
        I'm an 18-year-old full-stack developer from Nepal. I'm currently learning Django, and have experience in frontend development with React,  JavaScript, HTML, and CSS, as well as backend development with 
        Next.js, Node.js and Express.
        </span>

@@ -72,7 +72,7 @@ body {
 }
 
 .bio{
-  background-image: url(./Terminal/io.png);
+  background-image: url(/io.png);
   background-size: 250px;
   background-position: 0px 0px;
   opacity: 0.9;
