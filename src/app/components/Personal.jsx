@@ -21,8 +21,41 @@ const Personal = () => {
         Sabin Nayaju🪼 
        </span>
        <span className='te opacity-90 flex font-sans'>
-       I'm an 18-year-old full-stack developer from Nepal. I'm currently learning Django, and have experience in frontend development with React,  JavaScript, HTML, and CSS, as well as backend development with 
-       Next.js, Node.js and Express.
+       I'm an 18-year-old full-stack developer from Nepal. I'm currently learning Django, and have experience in frontend development with Next Js,React,  JavaScript, HTML, and CSS, as well as backend development with 
+       Node.js and Express & Prisma,Mongoose For ORMS.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
        </span>
       
      </div>
