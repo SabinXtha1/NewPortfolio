@@ -1,7 +1,7 @@
 'use client';
 import { useState } from "react";
 import { Star } from "lucide-react";
-import { SiNextdotjs, SiHtml5, SiCss3, SiGit, SiMongodb, SiPrisma, SiMongoose, SiExpress, SiNodedotjs, SiReact } from "react-icons/si";
+import { SiNextdotjs, SiHtml5, SiCss3, SiGit, SiMongodb, SiPrisma, SiMongoose, SiExpress, SiNodedotjs, SiReact, SiTailwindcss } from "react-icons/si";
 import "./LogoWall.css";
 
 const technologies = [
@@ -16,7 +16,9 @@ const technologies = [
   },{
     name:'React JS',icon:<SiReact className="text-sky-400"/>
   },
-  { name: "Mongoose", icon: <SiMongoose className="text-red-600" /> },
+  { name: "Mongoose", icon: <SiMongoose className="text-red-600" /> },{
+    name:"Tailwind Css",icon:<SiTailwindcss className="text-blue-300"/>
+  }
 ];
 
 function LogoWall({

@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Outfit:wght@100..900&family=Silkscreen:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Font Styles */
+.font-silkscreen {
+  font-family: "Silkscreen", cursive;
+}
+
+.font-outfit {
+  font-family: "Outfit", sans-serif;
+}
+
+.font-edu {
+  font-family: "Edu AU VIC WA NT Arrows", serif;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(20deg); }
+  40% { transform: rotate(-10deg); }
+  60% { transform: rotate(10deg); }
+  80% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes shiny {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-shiny {
+  animation: shiny 1.5s linear infinite;
+}
+
+.animate-float {
+  animation: float 6s infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 6s infinite;
+  animation-delay: -3s;
+}
+
+/* Body */
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Profile Image */
+.bio {
+  background-image: url(/io.png);
+  background-size: 250px;
+  background-position: 0px 0px;
+  opacity: 0.9;
+}
+
+.sn {
+  background-image: url('/io.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: black;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid black;
+  box-shadow: 0px 0px 15px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.sn:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0px 0px 25px rgba(255, 0, 0, 0.9);
+}
+
+/* Loading Animation */
+.load {
+  width: 170px;
+  height: 170px;
+  background-color: black;
+  border: 2px solid rgb(41, 41, 255);
+  box-shadow: 2px 2px 10px rgb(73, 73, 255);
+  border-radius: 50%;
+  position: absolute;
+  left: calc(50% - 85px);
+  animation: spin 3s linear infinite;
+}
+
+@media (min-width: 1024px) {
+  .load { left: 0; }
+}
+
+@media (min-width: 768px) {
+  .load { left: 0; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Text Effects */
+.te {
+  font-style: normal;
+}
+
+.te:nth-child(1) {
+  text-shadow: 2px 2px 5px blue;
+}
+
+/* Hover Effects */
+.an {
+  transition: linear 0.2s;
+}
+
+.ann:hover {
+  filter: drop-shadow(2px 2px 5px red);
+}
+
+.annn:hover {
+  filter: drop-shadow(2px 2px 5px blue);
+}
+
+/* Skills Section */
+.skill span {
+  opacity: 0.8;
+}
+
+.skill {
+  box-shadow: 2px 2px 5px white;
+  background-blend-mode: overlay;
+  margin: 12px;
+  border-radius: 50%;
+  min-width: 150px;
+  opacity: 0.8;
+  cursor: default;
+}
+
+.skill:hover {
+  opacity: 1;
+}
+
+/* Fade-In Effect */
+.nh {
+  animation: fade-in 1.5s linear;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Social Icons */
+.social-icon {
+  font-size: 1.8rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: white;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  color: #38bdf8;
+}
