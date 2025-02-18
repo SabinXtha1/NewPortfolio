@@ -7,7 +7,7 @@ import ShinyText from './effect/sinny';
 import { redirect, usePathname } from 'next/navigation';
 import LogoWall from './effect/logo';
 import reactbits from './Terminal/io.png';
-
+import Profile from './profile/page'
 const Page = () => {
   const pathname = usePathname();
 
@@ -101,6 +101,7 @@ const Page = () => {
           bgAccentColor="#111111"
         />
       </div>
+      <Profile/>
     </div>
   );
 };

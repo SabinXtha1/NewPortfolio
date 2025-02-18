@@ -9,7 +9,7 @@ import LogoWall from '../effect/items'
 import ScrollVelocity from '../effect/items'
 import { Star } from 'lucide-react'
 import Image from 'next/image'
-import { SiNextdotjs } from 'react-icons/si'
+import { SiNextdotjs, SiPrisma, SiSupabase } from 'react-icons/si'
 import { redirect } from 'next/navigation'
 
 const page = () => {
@@ -17,13 +17,31 @@ const page = () => {
     {
       name: 'Social Media',
       des: "A social media platform where users can share their thoughts, ideas, follow each other & get notified.",
-      url:'https://www.sabinnayaju.com.np',
+      url:'https://social-media-indol-tau.vercel.app/',
       src: '/social.png',
       technology: [
         {
           name: 'Next.js',
           icon: <SiNextdotjs className="text-white w-6 h-6" />,
-        },
+        },{
+          name:"Prisma",
+          icon:<SiPrisma className='text-white w-6 h-6'/>
+        },{
+          name:'Supabase',
+          icon:<SiSupabase className='text-green-400 w-6 h-6'/>
+        }
+      ],
+    },
+    {
+      name: 'Portfolio',
+      des: "it has a terminal in which we can see admin details.",
+      url:'https://www.sabinnayaju.com.np',
+      src: '/port.png',
+      technology: [
+        {
+          name: 'Next.js',
+          icon: <SiNextdotjs className="text-white w-6 h-6" />,
+        }
       ],
     },
   ];
@@ -120,7 +138,7 @@ const page = () => {
             {project.map((item, index) => (
               <a href={item.url} target='_blank' key={index}>
 
-              <div key={index} className="relative overflow-hidden rounded-2xl shadow-md p-4 bg-gray-950 font-serif"
+              <div key={index} className="relative overflow-hidden rounded-2xl shadow-md p-4 bg-gray-950 font-serif h-full"
             
               >
                 {/* Project Image & Hover Overlay */}
@@ -130,7 +148,7 @@ const page = () => {
                     alt="Project Image"
                     width={300}
                     height={100}
-                    className="rounded-2xl w-[300px] scale-90 hover:scale-100 transition-transform duration-300"
+                    className="rounded-2xl w-[300px] h-[200px] scale-90 hover:scale-100 transition-transform duration-300"
                     />
                   
                   {/* Technology Overlay (Shown on Hover) */}
@@ -175,4 +193,4 @@ const page = () => {
   )
 }
 
-export default page
+export default page 
