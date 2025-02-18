@@ -7,7 +7,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import Link from 'next/link'
 import LogoWall from '../effect/items'
 import ScrollVelocity from '../effect/items'
-import { Star } from 'lucide-react'
+import { Dot, Star } from 'lucide-react'
 import Image from 'next/image'
 import { SiNextdotjs, SiPrisma, SiSupabase } from 'react-icons/si'
 import { redirect } from 'next/navigation'
@@ -84,10 +84,12 @@ const page = () => {
 
   </div>
   <div className='  gap-8 flex  items-center flex-col md:flex-row lg:flex-row relative'>
-          
-     <div className='bio min-w-[170px] h-[170px] rounded-[50%] scale-95 overflow-hidden hover:scale-100 an  relative'>  
+          <div className='min-w-[170px] h-[170px]'>
+
+     <div className='bio min-w-[170px] h-[170px] rounded-[50%] scale-95 overflow-hidden hover:scale-100 an  absolute -top-0'>  
     
      </div>
+          </div>
      <div className='flex flex-col  m-2 gap-2 '>
        <span className='text-3xl font-bold font-mono te text-blue-100 '>
         Sabin Nayaju🪼 
@@ -187,6 +189,24 @@ const page = () => {
           />
           </div>
        
+       <div className='flex justify-center items-center h-[400px] bg-[#111116] rounded-xl w-[80vw] m-10 p-4 font-serif'>
+        <div className='flex flex-col items-center justify-center gap-2'>
+          <h1 className='text-xl flex items-center relative'>
+          <Dot className='text-green-400 w-20 h-20 animate-pulse absolute -left-5 opacity-70' />
+        <Dot className='text-green-400 w-10 h-10 animate-pulse' /> Available for work
+          </h1>
+          <h1 className=' text-5xl font-bold text-center '>
+            Let's create your 
+            <br></br>
+            next
+             big idea.
+          </h1>
+          <button className='bg-white text-black rounded-2xl px-4 py-2 m-2 '>
+             Contact Me
+          </button>
+        </div>
+       </div>
+      
 
     </div>
           </div>

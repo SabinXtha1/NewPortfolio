@@ -17,7 +17,7 @@ const Navbar = () => {
     { icon: <Contact size={18} className='text-red-300'/>, label: 'Contact', onClick: () => redirect('/contact') },
   ];
   return (
-    <div className="fixed bottom-0 left-0 w-full flex justify-center z-50">
+    <div className="fixed bottom-0 left-0 w-full flex justify-center z-50 ">
       <Dock 
         items={items}
         panelHeight={68}

@@ -115,8 +115,9 @@ const page = () => {
                     backgroundColor:'rgb(17,17,22)'
                    }} >
                       <div>
-                       <span className=' rounded-xl flex '>
-                         <Dot className='text-green-400 '/> Available For Work
+                       <span className=' rounded-xl flex relative items-center '>
+                       <Dot className='text-green-400 w-20 h-20 animate-pulse absolute -left-5 -top-5 opacity-70' />
+                             <Dot className='text-green-400 w-10 h-10 animate-pulse' /> Available For Work
                        </span>
                       </div>
                       <div>

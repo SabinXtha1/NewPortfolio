@@ -101,7 +101,7 @@ const Page = () => {
           bgAccentColor="#111111"
         />
       </div>
-      <Profile/>
+     
     </div>
   );
 };
