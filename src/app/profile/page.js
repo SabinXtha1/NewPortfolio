@@ -98,7 +98,7 @@ const page = () => {
        I'm an 18-year-old full-stack developer from Nepal. I'm currently learning Django, and have experience in frontend development with Next Js,React,  JavaScript, HTML, and CSS, as well as backend development with 
         Node.js and Express & Prisma,Mongoose For ORMS.
        </span>
-       <a href='/cv.pdf' target='_blank' className='px-4 py-2 bg-white text-black rounded-2xl text-center   mt-3  w-[150px] hover:text-white hover:bg-red-500 shadow-sm shadow-white font-serif font-bold '  >
+       <a href='/cv.pdf' target='_blank' className='px-4 py-2 bg-white text-black rounded-2xl text-center   mt-3  w-[150px] hover:text-white hover:bg-red-500 shadow-sm shadow-white font-serif font-bold ann an'  >
             My Resume
           </a>
       
@@ -136,11 +136,11 @@ const page = () => {
   <h1  className='text-5xl font-bold font-serif mb-10'>
       Crafting Ideas
   </h1>
-  <div className="grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-4">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto gap-10">
             {project.map((item, index) => (
               <a href={item.url} target='_blank' key={index}>
 
-              <div key={index} className="relative overflow-hidden rounded-2xl shadow-md p-4 bg-gray-950 font-serif h-full"
+              <div key={index} className="relative overflow-hidden max-w-[500px] rounded-2xl shadow-sm p-4 border-blue-400  border-[1px] hover:shadow-blue-400 border-opacity-[0.4] font-serif h-full"
             
               >
                 {/* Project Image & Hover Overlay */}
@@ -154,7 +154,7 @@ const page = () => {
                     />
                   
                   {/* Technology Overlay (Shown on Hover) */}
-                  <div className="absolute inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl">
+                  <div className="absolute inset-0 bg-black bg-opacity-90 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl an">
                     <h3 className="text-white font-bold text-lg mb-2">Technologies</h3>
                     <div className="flex gap-3">
                       {item.technology.map((tech, i) => (
@@ -168,11 +168,18 @@ const page = () => {
                 </div>
 
                 {/* Project Name & Description */}
-                <h1 className="w-full px-4 pt-4 text-3xl font-serif font-bold">{item.name}</h1>
-                <p className="px-4">{item.des}</p>
+                <p className="px-4 text-center pt-2">
+  {item.des.charAt(0).toUpperCase() + item.des.slice(1).toLowerCase()}
+</p>
               </div>
             </a>
             ))}
+          </div>
+          <div className='flex justify-center w-full'>
+
+          <Link href='https://github.com/SabinXtha1' className='flex text-xl font-bold font-serif gap-2 justify-center items-center m-2 bg-black p-4 border rounded-3xl border-white border-opacity-50 scale-95 hover:scale-100 an md:w-[80%] lg:w-[50%]'>
+         More Project On <FaGithub className=' w-[36px] h-[36px] text-red-600 scale-95 hover:scale-100 an ann '/>
+         </Link>
           </div>
  </div>
  
@@ -201,9 +208,10 @@ const page = () => {
             next
              big idea.
           </h1>
-          <button className='bg-white text-black rounded-2xl px-4 py-2 m-2 '>
-             Contact Me
-          </button>
+          <button className="bg-white text-black rounded-2xl px-4 py-2 m-2 scale-90 hover:scale-100 hover:bg-gray-200 transition-transform">
+  Contact Me
+</button>
+
         </div>
        </div>
       
