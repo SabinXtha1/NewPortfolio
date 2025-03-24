@@ -2,7 +2,6 @@
 import { CodeXml, Hand } from 'lucide-react';
 import Link from 'next/link';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import SplashCursor from './effect/splash';
 import ShinyText from './effect/sinny';
 import { redirect, usePathname } from 'next/navigation';
 import LogoWall from './effect/logo';
@@ -28,7 +27,7 @@ const Page = () => {
       }}
     >
       {/* Background Effects */}
-      <SplashCursor className="-z-0 absolute inset-0" />
+      
 
       {/* Main Content Wrapper */}
       <div className="px-6 md:px-16 overflow-hidden">

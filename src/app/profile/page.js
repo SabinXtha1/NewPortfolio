@@ -1,16 +1,11 @@
 import React from 'react'
-import Personal from '../components/Personal'
-import CircularText from '../effect/circular'
-import Noise from '../effect/noise'
-import SplashCursor from '../effect/splash'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import Link from 'next/link'
 import LogoWall from '../effect/items'
-import ScrollVelocity from '../effect/items'
 import { Dot, Star } from 'lucide-react'
 import Image from 'next/image'
 import { SiNextdotjs, SiPrisma, SiSupabase } from 'react-icons/si'
-import { redirect } from 'next/navigation'
+
 
 const page = () => {
   const project = [
@@ -53,13 +48,7 @@ const page = () => {
       backgroundSize: "20px 20px",
       backgroundRepeat: "repeat",
     }}>
-  <Noise
-    patternSize={250}
-    patternScaleX={1}
-    patternScaleY={1}
-    patternRefreshInterval={2}
-    patternAlpha={15}
-  />
+
     <div className='text-white pt-20 flex flex-col items-center justify-center  'style={{
             backgroundColor: "black",
             backgroundImage: `radial-gradient(circle, rgba(6,128,212,0.2) 1px, transparent 1px)`,
@@ -136,21 +125,21 @@ const page = () => {
   <h1  className='text-5xl font-bold font-serif mb-10'>
       Crafting Ideas
   </h1>
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto gap-10">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl  gap-10 ">
             {project.map((item, index) => (
               <a href={item.url} target='_blank' key={index}>
 
-              <div key={index} className="relative overflow-hidden max-w-[500px] rounded-2xl shadow-sm p-4 border-blue-400  border-[1px] hover:shadow-blue-400 border-opacity-[0.4] font-serif h-full"
+              <div key={index} className="relative overflow-hidden max-w-[500px] rounded-2xl bg-black shadow-sm hover:shadow-lg p-4 shadow-blue-500   hover:shadow-blue-500 border-opacity-[0.4] font-serif h-full"
             
               >
                 {/* Project Image & Hover Overlay */}
-                <div className="relative group flex  justify-center">
+                <div className="relative group flex  justify-center ">
                   <Image
                     src={item.src}
                     alt="Project Image"
                     width={300}
                     height={100}
-                    className="rounded-2xl w-[300px] h-[200px] scale-90 hover:scale-100 transition-transform duration-300"
+                    className="rounded-2xl w-[300px] h-[200px] scale-90 hover:scale-100 transition-transform duration-300 "
                     />
                   
                   {/* Technology Overlay (Shown on Hover) */}
@@ -168,7 +157,7 @@ const page = () => {
                 </div>
 
                 {/* Project Name & Description */}
-                <p className="px-4 text-center pt-2">
+                <p className="px-4 text-center p-5 font-silkscreen">
   {item.des.charAt(0).toUpperCase() + item.des.slice(1).toLowerCase()}
 </p>
               </div>
@@ -177,7 +166,7 @@ const page = () => {
           </div>
           <div className='flex justify-center w-full'>
 
-          <Link href='https://github.com/SabinXtha1' className='flex text-xl font-bold font-serif gap-2 justify-center items-center m-2 bg-black p-4 border rounded-3xl border-white border-opacity-50 scale-95 hover:scale-100 an md:w-[80%] lg:w-[50%]'>
+          <Link href='https://github.com/SabinXtha1' className='flex text-xl font-bold font-serif gap-2 justify-center items-center m-2 bg-black p-4 border rounded-3xl border-white border-opacity-50 scale-95 hover:scale-100 an px-10'>
          More Project On <FaGithub className=' w-[36px] h-[36px] text-red-600 scale-95 hover:scale-100 an ann '/>
          </Link>
           </div>
