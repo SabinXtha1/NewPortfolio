@@ -58,7 +58,7 @@ const page = () => {
 
   return (
     <div className='text-white overflow-x-hidden '>
-                <div className='w-screen   flex items-center justify-center flex-col font-serif gap-10 lg:h-screen md:h-screen '
+                <div className='w-screen   flex items-center justify-center flex-col font-serif gap-10 lg:h-screen md:h-screen lg:mt-10 '
                 style={{
                     backgroundColor: "black",
                     backgroundImage: `radial-gradient(circle, rgba(6,128,212,0.4) 1px, transparent 1px)`,
