@@ -3,12 +3,12 @@ import { CodeXml, Hand } from 'lucide-react';
 import Link from 'next/link';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import ShinyText from './effect/sinny';
-import { redirect, usePathname } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import LogoWall from './effect/logo';
 import reactbits from './Terminal/io.png';
-import Profile from './profile/page'
+
 const Page = () => {
-  const pathname = usePathname();
+  
 
   const logoImgs = [
     { imgUrl: reactbits, altText: "Developer" },
@@ -32,6 +32,7 @@ const Page = () => {
       {/* Main Content Wrapper */}
       <div className="px-6 md:px-16 overflow-hidden">
         {/* Header */}
+       
         <header className="mt-10 flex justify-between items-center w-full">
           {/* Name & Hand Icon */}
           <h1 className="flex items-center gap-2 text-xl font-bold tracking-widest text-gray-300" onClick={()=>{redirect('/')}} >
@@ -65,7 +66,7 @@ const Page = () => {
           <section className="text-center">
             <h2 className="text-5xl md:text-6xl lg:text-[70px] font-extrabold leading-tight">
               <span className="text-gray-300">Crafting </span>
-              <span className="text-transparent bg-gradient-to-r from-green-300 via-cyan-400 to-blue-400 bg-clip-text">
+              <span className="text-transparent gradient-text text-5xl md:text-6xl lg:text-[70px] font-extrabold leading-tight">
                 purpose-driven <br /> experiences
               </span>
               <span className="text-gray-300"> that inspire & engage.</span>

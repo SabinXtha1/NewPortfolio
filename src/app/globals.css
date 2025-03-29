@@ -211,3 +211,36 @@ text-shadow: 2px 2px 5px blue;
   transform: scale(1.2);
   color: #38bdf8; /* Tailwind cyan-400 */
 }
+.gradient-text {
+  background: linear-gradient(90deg, #22c55e, #06b6d4, #3b82f6);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 2s infinite linear;
+  -webkit-animation: gradientMove 2s infinite linear;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out forwards;
+}

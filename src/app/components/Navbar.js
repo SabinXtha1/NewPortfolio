@@ -6,6 +6,7 @@ import { Contact, Contact2, HomeIcon, Terminal } from 'lucide-react';
 import { redirect, usePathname } from 'next/navigation';
 import { FaRegAngry } from 'react-icons/fa';
 import { FaRegFaceGrinBeam } from "react-icons/fa6";
+import ModernNavbar from './ModNavbar';
 const Navbar = () => {
 
   
@@ -23,7 +24,11 @@ const Navbar = () => {
         panelHeight={68}
         baseItemSize={50}
         magnification={70}
-      />
+     className='lg:hidden' />
+     <div className='hidden lg:block'>
+
+      <ModernNavbar />
+     </div>
     </div>
   );
   

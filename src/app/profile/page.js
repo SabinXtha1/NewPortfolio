@@ -66,7 +66,7 @@ const page = () => {
           TEXT
             </div>
         </div> */}
-        <div className='w-[80%]'>
+        <div className='w-[80%] lg:mt-10'>
       
        <div className=' relative m-4 mb-8 nh'>
   <div className='w-[210px] h-[210px] rounded-full flex items-center justify-center load scale-20 hover:scale-100'>

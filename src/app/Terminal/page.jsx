@@ -37,7 +37,7 @@ const Page = () => {
       </Link>
       </div>
       
-      <div className="w-full h-full m-2 rounded backdrop-blur-[2px] b flex flex-col items-center justify-center ">
+      <div className="w-full h-full m-2 rounded backdrop-blur-[2px] b flex flex-col items-center justify-center mt-10 ">
           <div className='bg-gray-900 p-1 max-h-[35px] min-h-[35px] flex items-center justify-between rounded px-5 w-[90%] lg:w-[70%] md:w-[90%] '>
             <span className='flex gap-2 '>
                 <p className='w-[10px] h-[10px] rounded-[50%] bg-red-500'></p>
