@@ -129,7 +129,7 @@ const page = () => {
             {project.map((item, index) => (
               <a href={item.url} target='_blank' key={index}>
 
-              <div key={index} className="relative overflow-hidden max-w-[500px] rounded-2xl bg-black shadow-sm hover:shadow-lg p-4 shadow-blue-500   hover:shadow-blue-500 border-opacity-[0.4] font-serif h-full"
+              <div key={index} className="relative overflow-hidden max-w-[500px] rounded-2xl bg-black shadow-sm hover:shadow-lg p-4 shadow-blue-500   hover:shadow-blue-500 border-opacity-[0.4] font-serif h-full pt-10"
             
               >
                 {/* Project Image & Hover Overlay */}
@@ -167,7 +167,7 @@ const page = () => {
           <div className='flex justify-center w-full'>
 
           <Link href='https://github.com/SabinXtha1' className='flex text-xl font-bold font-serif gap-2 justify-center items-center m-2 bg-black p-4 border rounded-3xl border-white border-opacity-50 scale-95 hover:scale-100 an px-10'>
-         More Project On <FaGithub className=' w-[36px] h-[36px] text-red-600 scale-95 hover:scale-100 an ann '/>
+         <FaGithub className=' w-[36px] h-[36px] text-red-600 scale-95 hover:scale-100 an ann '/>Repo 
          </Link>
           </div>
  </div>
