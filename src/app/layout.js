@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Sabin Nayaju",
   description: "",
-  'google-adsense-account': 'ca-pub-7853115776583128'
+
  
   
 };
@@ -31,6 +31,8 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
     >
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7853115776583128"
+     crossOrigin="anonymous"></script>
       <Toaster
   position="top-center"
   reverseOrder={false}
