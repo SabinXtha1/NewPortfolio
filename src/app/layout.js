@@ -17,11 +17,17 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Sabin Nayaju",
   description: "",
+  'google-adsense-account': 'ca-pub-7853115776583128'
+ 
+  
 };
+
+
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+  
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
     >
