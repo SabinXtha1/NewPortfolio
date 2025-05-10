@@ -2,119 +2,116 @@
 
 import { usePathname } from "next/navigation"
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { motion, useAnimation } from "framer-motion"
+import { Menu, X } from "lucide-react"
 
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Terminal", href: "/Terminal" },
-  { label: "Profile", href: "/profile" },
   { label: "Contact", href: "/contact" },
 ]
 
 export default function ModernNavbar() {
   const pathname = usePathname()
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const controls = useAnimation()
+  const [lastScrollY, setLastScrollY] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY
+      if (currentY > lastScrollY && currentY > 80) {
+        controls.start({ y: -100 }) // hide
+      } else {
+        controls.start({ y: 0 }) // show
+      }
+      setLastScrollY(currentY)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [lastScrollY, controls])
+
+  if (pathname === "/Terminal") return null
 
   return (
-    <div className={`fixed top-4 left-0 right-0 z-50 w-[90vw] md:w-[60vw] mx-auto ${pathname === '/Terminal' ? 'hidden' : 'block'}`}>
-      <div className="relative backdrop-blur-md bg-black/20 border border-white/10 rounded-3xl px-6 py-4 shadow-lg">
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center justify-around">
+    <motion.div
+      animate={controls}
+      initial={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 300, damping: 25 }}
+      className="fixed top-4 left-0 right-0 z-[999] mx-auto w-[90vw] md:w-[60vw]"
+    >
+      <div className="relative bg-black/40 backdrop-blur-md border border-white/10 rounded-3xl shadow-xl px-6 py-4">
+        {/* Desktop Nav */}
+        <div className="hidden md:flex justify-between items-center">
           {navItems.map((item, index) => {
             const isActive = pathname === item.href
-
             return (
               <Link key={index} href={item.href} className="relative px-4 py-2 group">
                 <span
-                  className={`relative z-10 font-medium ${isActive ? "text-white" : "text-white/80"} transition-colors duration-200`}
+                  className={`relative z-10 font-medium transition-colors duration-200 ${
+                    isActive ? "text-white" : "text-white/70 group-hover:text-white"
+                  }`}
                 >
                   {item.label}
                 </span>
-
-                {isActive && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-pink-500 rounded-3xl -z-0 animate-fadeIn" />
-                )}
-
-                {!isActive && (
-                  <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-3xl transition-all duration-300 -z-0" />
-                )}
+                <motion.div
+                  layoutId="nav-highlight"
+                  className={`absolute inset-0 rounded-2xl -z-10 transition ${
+                    isActive
+                      ? "bg-gradient-to-r from-pink-500 to-red-500"
+                      : "group-hover:bg-white/10"
+                  }`}
+                />
               </Link>
             )
           })}
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Nav Toggle */}
         <div className="md:hidden flex justify-between items-center">
-          <span className="text-white font-semibold">Menu</span>
+          <span className="text-white font-semibold tracking-wide">Menu</span>
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-white p-2 rounded-full hover:bg-white/10 transition-colors"
-            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="text-white p-2 rounded-full hover:bg-white/10 transition"
+            aria-label="Toggle Menu"
           >
-            {mobileMenuOpen ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-              </svg>
-            )}
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
-        <div
-          className={`absolute top-16 left-0 right-0 bg-black/90 backdrop-blur-md rounded-3xl p-4 border border-white/10 md:hidden transition-all duration-300 ease-in-out ${
-            mobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
-          }`}
+        <motion.div
+          initial={false}
+          animate={{
+            opacity: mobileOpen ? 1 : 0,
+            y: mobileOpen ? 0 : -20,
+            pointerEvents: mobileOpen ? "auto" : "none",
+          }}
+          transition={{ duration: 0.3 }}
+          className="absolute top-[64px] left-0 right-0 bg-black/90 rounded-2xl p-4 border border-white/10 md:hidden z-40"
         >
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col gap-2">
             {navItems.map((item, index) => {
               const isActive = pathname === item.href
-
               return (
                 <Link
                   key={index}
                   href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`px-8 py-3 rounded-2xl ${
+                  onClick={() => setMobileOpen(false)}
+                  className={`w-full text-center py-3 rounded-xl transition font-medium ${
                     isActive
-                      ? "bg-gradient-to-r from-red-500 to-pink-500 text-white"
+                      ? "bg-gradient-to-r from-pink-500 to-red-500 text-white"
                       : "text-white/80 hover:bg-white/10"
-                  } transition-colors duration-200`}
+                  }`}
                 >
                   {item.label}
                 </Link>
               )
             })}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   )
 }
-

@@ -1,11 +1,11 @@
 'use client'
-import React, { useEffect, useState } from 'react'
-import { VscHome, VscArchive, VscAccount, VscSettingsGear, VscProject } from "react-icons/vsc";
+import React from 'react'
+import { VscHome } from "react-icons/vsc";
 import Dock from '../effect/doc'
-import { Contact, Contact2, HomeIcon, Terminal } from 'lucide-react';
-import { redirect, usePathname } from 'next/navigation';
+import { Contact, Terminal } from 'lucide-react';
+import { redirect } from 'next/navigation';
 import { FaRegAngry } from 'react-icons/fa';
-import { FaRegFaceGrinBeam } from "react-icons/fa6";
+
 import ModernNavbar from './ModNavbar';
 const Navbar = () => {
 
