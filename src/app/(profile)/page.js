@@ -96,10 +96,10 @@ export default function Page() {
       initial="hidden"
       animate={isLoaded ? "visible" : "hidden"}
       variants={backgroundVariants}
-      style={{
-        backgroundImage: `radial-gradient(circle, rgba(6,128,212,0.3) 1px, transparent 1px)`,
-        backgroundRepeat: "repeat",
-      }}
+      // style={{
+      //   backgroundImage: `radial-gradient(circle, rgba(6,128,212,0.3) 1px, transparent 1px)`,
+      //   backgroundRepeat: "repeat",
+      // }}
     >
       {/* Hero Section */}
       <motion.div className="relative pt-20 pb-16 flex flex-col items-center justify-center" style={{ opacity }}>
