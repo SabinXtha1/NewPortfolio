@@ -61,12 +61,12 @@ const page = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="w-screen flex items-center justify-center flex-col font-serif gap-10 lg:h-screen md:h-screen lg:mt-10"
-        style={{
+{/*         style={{
           backgroundColor: 'black',
           backgroundImage: `radial-gradient(circle, rgba(6,128,212,0.4) 1px, transparent 1px)`,
           backgroundSize: '20px 20px',
           backgroundRepeat: 'repeat',
-        }}
+        }} */}
       >
         <div className="w-[80%] gap-2 flex flex-col mt-[100px] lg:mt-0">
           <h1 className="text-green-400 flex items-center gap-2">
