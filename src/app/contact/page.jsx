@@ -65,7 +65,7 @@ const page = () => {
           backgroundColor: 'black',
           backgroundImage: `radial-gradient(circle, rgba(6,128,212,0.4) 1px, transparent 1px)`,
           backgroundSize: '20px 20px',
-          backgroundRepeat: 'repeat',
+          baackgroundRepeat: 'repeat',
         }} */}
       >
         <div className="w-[80%] gap-2 flex flex-col mt-[100px] lg:mt-0">
