@@ -57,15 +57,17 @@ const FAQ = () => {
 
             <AnimatePresence initial={false}>
               {openIndex === index && (
-                <motion.p
-                  className="text-gray-400 mt-2"
+                <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3 }}
+                  className="overflow-hidden"
                 >
-                  {faq.answer}
-                </motion.p>
+                  <p className="text-gray-400 mt-2">
+                    {faq.answer}
+                  </p>
+                </motion.div>
               )}
             </AnimatePresence>
           </div>

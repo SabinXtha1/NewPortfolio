@@ -6,7 +6,7 @@ const Contact = () => {
   return (
     <div className="font-mono text-green-300 p-4 nh">
       <h2 className="text-yellow-400 mb-2 cursor-default">Contact Information</h2>
-      <div className="space-y-2">
+      <div className="space-y-3">
         <div className="flex">
           <span className="text-cyan-300 cursor-default">📧 Email:</span>
           <a href='mailto:raj123nayaju@gmail.com'>

@@ -7,6 +7,7 @@ import { Github, Linkedin, Star, CircleDot, ExternalLink, Download } from "lucid
 import { SiNextdotjs, SiPrisma, SiSupabase } from "react-icons/si"
 import LogoWall from "../effect/items"
 import Link from "next/link"
+import JelloEffect from '../components/JelloEffect'
 
 // Tech stack icons
 const TechIcon = ({ name, children, color = "text-white" }) => (
@@ -102,7 +103,7 @@ export default function Page() {
       // }}
     >
       {/* Hero Section */}
-      <motion.div className="relative pt-20 pb-16 flex flex-col items-center justify-center" style={{ opacity }}>
+      <motion.div className="relative pt-28  md:pt-20 pb-16 flex flex-col items-center justify-center" style={{ opacity }}>
         <motion.div
           className="absolute inset-0 -z-10"
           initial={{ opacity: 0 }}
@@ -126,7 +127,7 @@ export default function Page() {
               transition={{ type: "spring", stiffness: 300, damping: 15 }}
             >
               <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-600 to-purple-600 opacity-70"
+                className="absolute inset-0 rounded-full bg-gradient-to-tr from-yellow-600 to-red-600 opacity-70"
                 animate={{
                   scale: [1, 1.05, 1],
                   rotate: [0, 5, 0, -5, 0],
@@ -144,12 +145,14 @@ export default function Page() {
 
             <div className="flex flex-col gap-4">
               <motion.h1
-                className="text-3xl md:text-4xl font-bold text-blue-100"
+                className="text-3xl md:text-4xl font-bold text-blue-100 flex  "
                 initial={{ opacity: 0, x: -20 }}
                 animate={bioInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                Sabin Nayaju <span className="text-blue-400">🪼</span>
+              <JelloEffect words={"Sabin Nayaju"}/>
+                <span className=" text-red-400">
+                  🪼</span>
               </motion.h1>
 
               <motion.p
@@ -158,9 +161,9 @@ export default function Page() {
                 animate={bioInView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                I'm an 18-year-old full-stack developer from Nepal. I'm currently learning Django, and have experience
-                in frontend development with Next.js, React, JavaScript, HTML, and CSS, as well as backend development
-                with Node.js, Express, Prisma, and Mongoose for ORMs.
+                I&apos;m an 18-year-old full-stack developer from Nepal. I&apos;m currently learning Django, and have experience  in frontend development with Next.js, React, JavaScript, HTML, and CSS, as well as backend development with Node.js, Express, Prisma, and Mongoose for ORMs.
+                
+                
               </motion.p>
 
               <motion.div

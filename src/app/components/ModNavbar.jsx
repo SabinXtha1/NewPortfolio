@@ -43,7 +43,7 @@ export default function ModernNavbar() {
     >
       <div className="relative bg-black/40 backdrop-blur-md border border-white/10 rounded-3xl shadow-xl px-6 py-4">
         {/* Desktop Nav */}
-        <div className="hidden md:flex justify-between items-center">
+        <div className=" flex justify-between items-center">
           {navItems.map((item, index) => {
             const isActive = pathname === item.href
             return (
@@ -69,7 +69,7 @@ export default function ModernNavbar() {
         </div>
 
         {/* Mobile Nav Toggle */}
-        <div className="md:hidden flex justify-between items-center">
+        {/* <div className="md:hidden flex justify-between items-center">
           <span className="text-white font-semibold tracking-wide">Menu</span>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -78,10 +78,10 @@ export default function ModernNavbar() {
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-        </div>
+        </div> */}
 
         {/* Mobile Menu */}
-        <motion.div
+        {/* <motion.div
           initial={false}
           animate={{
             opacity: mobileOpen ? 1 : 0,
@@ -110,7 +110,7 @@ export default function ModernNavbar() {
               )
             })}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </motion.div>
   )

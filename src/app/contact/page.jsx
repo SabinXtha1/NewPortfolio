@@ -61,12 +61,7 @@ const page = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="w-screen flex items-center justify-center flex-col font-serif gap-10 lg:h-screen md:h-screen lg:mt-10"
-{/*         style={{
-          backgroundColor: 'black',
-          backgroundImage: `radial-gradient(circle, rgba(6,128,212,0.4) 1px, transparent 1px)`,
-          backgroundSize: '20px 20px',
-          baackgroundRepeat: 'repeat',
-        }} */}
+
       >
         <div className="w-[80%] gap-2 flex flex-col mt-[100px] lg:mt-0">
           <h1 className="text-green-400 flex items-center gap-2">
@@ -85,7 +80,7 @@ const page = () => {
             viewport={{ once: true }}
             className="bg-black p-2 rounded-xl"
           >
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 font-serif border border- p-6 rounded-xl ">
               <div className="flex flex-col">
                 <span>Full Name</span>
                 <input
@@ -93,7 +88,7 @@ const page = () => {
                   placeholder="Enter Your Name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="bg-black rounded border-[0.5px] border-opacity-55 p-2"
+                  className="bg-black rounded-xl mt-2 -ml-1 border-[0.5px] border-opacity-55 p-2"
                 />
               </div>
               <div className="flex flex-col">
@@ -103,7 +98,7 @@ const page = () => {
                   placeholder="Enter Your Email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="bg-black rounded border p-2"
+                  className="bg-black rounded-xl mt-2 -ml-1 border p-2"
                 />
               </div>
               <div className="flex flex-col">
@@ -113,7 +108,7 @@ const page = () => {
                   placeholder="Enter Your Message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="bg-black rounded border p-2"
+                  className="bg-black rounded-xl mt-2 -ml-1 border p-2"
                 />
               </div>
               <button className="border rounded-xl py-3 flex items-center justify-center">
@@ -172,12 +167,7 @@ const page = () => {
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
         className="w-screen h-screen flex items-center justify-center"
-        style={{
-          backgroundColor: 'black',
-          backgroundImage: `radial-gradient(circle, rgba(6,128,212,0.2) 1px, transparent 1px)`,
-          backgroundSize: '20px 20px',
-          backgroundRepeat: 'repeat',
-        }}
+       
       >
         <div className="w-[80%] flex items-center justify-center flex-col font-serif gap-10 h-screen">
           <div className="grid grid-cols-1 lg:grid-cols-2">
