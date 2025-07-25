@@ -6,9 +6,8 @@ import Project from './Project';
 import Contact from './Contact';
 import { useRouter } from 'next/navigation';
 
-
 const Fun = () => {
-  const targetRef = useRef(null);
+  const targetRef = useRef()
   const [filesName, setFilesName] = useState(["BIO", "CONTACT", "PROJECT", "SKILL"]);
   const [directories, setDirectories] = useState([]);
   const [currentDir, setCurrentDir] = useState('portfolio');
@@ -19,9 +18,11 @@ const Fun = () => {
       targetRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }, );
+  
   const [inputData, setInputData] = useState('');
   const [outputHistory, setOutputHistory] = useState([]);
- const router = useRouter()
+  const router = useRouter()
+  
   const handleEnter = (event) => {
     if (event.key === 'Enter') {
       const commandInput = inputData;
@@ -35,16 +36,32 @@ const Fun = () => {
      
       if (command === 'CD') {
         const dir = argument ? argument.toUpperCase() : '';
+        
         if (dir === '..') {
+          // Go back to parent directory
+          if (currentDir !== 'portfolio') {
             setCurrentDir('portfolio');
+            output = null; // No output for successful cd
+          } else {
+            output = `cd: already in root directory`;
+          }
+        } else if (dir === '' || dir === '~' || dir === 'PORTFOLIO') {
+          // Go to root directory
+          setCurrentDir('portfolio');
+          output = null; // No output for successful cd
         } else if (directories.includes(dir)) {
-            setCurrentDir(dir);
+          // Change to existing directory
+          setCurrentDir(dir);
+          output = null; // No output for successful cd
         } else if (filesName.includes(dir)) {
-            output = `cd: not a directory: ${dir}`;
+          // Trying to cd into a file
+          output = `cd: not a directory: ${dir}`;
         } else {
-            output = `cd: no such file or directory: ${dir}`;
+          // Directory doesn't exist
+          output = `cd: no such file or directory: ${dir}`;
         }
-      } else if (command === 'SKILL') {
+      }
+      else if (command === 'SKILL') {
         output = <Skill />;
       } else if (command === 'CONTACT') {
         output = <Contact />;
@@ -53,36 +70,40 @@ const Fun = () => {
       } else if (command === 'PERSONAL' || command ==='BIO') {
         output = <Personal />;
       } else if(command ==='EXIT'){
-           router.push('/')
+        router.push('/')
       } else if(command ==='MKDIR'){
-          const newFile = argument ? argument.toUpperCase() : null;
-          if (currentDir !== 'portfolio') {
-              output = 'mkdir: cannot create directory here.';
-          } else if (newFile) {
-            if ([...filesName, ...directories].includes(newFile)) {
-                output = `mkdir: cannot create directory ‘${newFile}’: File or directory exists`;
-            } else {
-                setDirectories(prev => [...prev, newFile]);
-                output = `Directory "${newFile}" created.`;
-            }
+        const newFile = argument ? argument.toUpperCase() : null;
+        if (currentDir !== 'portfolio') {
+          output = 'mkdir: cannot create directory here.';
+        } else if (newFile) {
+          if ([...filesName, ...directories].includes(newFile)) {
+            output = `mkdir: cannot create directory '${newFile}': File or directory exists`;
           } else {
-              output = 'mkdir: missing operand';
+            setDirectories(prev => [...prev, newFile]);
+            output = `Directory "${newFile}" created.`;
           }
+        } else {
+          output = 'mkdir: missing operand';
+        }
       } 
       else if (command === 'LS') {
         if (currentDir === 'portfolio') {
-            output = (
-              <div className='font-mono font-bold w-full'>
-                <ul className='flex flex-wrap justify-start gap-x-4' >
-                  {[...filesName, ...directories].map((file) => (
-                    <li key={file}><span className={directories.includes(file) ? 'text-blue-500' : 'text-yellow-500'}>{file}</span></li>
-                  ))}
-                </ul>
-              </div>
-            );
+          output = (
+            <div className='font-mono font-bold w-full'>
+              <ul className='flex flex-wrap justify-start gap-x-4' >
+                {[...filesName, ...directories].map((file) => (
+                  <li key={file}><span className={directories.includes(file) ? 'text-blue-500' : 'text-yellow-500'}>{file}</span></li>
+                ))}
+              </ul>
+            </div>
+          );
         } else {
-            output = ''; // empty dir
+          output = ''; // empty dir
         }
+      }
+      else if (command === 'PWD') {
+        // Show current directory path
+        output = `/${currentDir}`;
       }
       else if (command === 'HELP') {
         output = (
@@ -98,6 +119,7 @@ const Fun = () => {
               <li><span className='text-yellow-500'>LS</span> - List directories</li>
               <li><span className='text-yellow-500'>MKDIR [name]</span> - Create directory</li>
               <li><span className='text-yellow-500'>CD [name]</span> - Change directory</li>
+              <li><span className='text-yellow-500'>PWD</span> - Show current directory</li>
             </ul>
           </div>
         );
@@ -108,10 +130,13 @@ const Fun = () => {
         output = `Command not recognized: ${command}. Type 'help' for available commands.`;
       }
 
-      setOutputHistory(prevOutput => [
-        ...prevOutput,
-        { command: commandInput, output } 
-      ]);
+      // Only add to history if there's a command and it's not just whitespace
+      if (commandInput.trim()) {
+        setOutputHistory(prevOutput => [
+          ...prevOutput,
+          { command: commandInput, output } 
+        ]);
+      }
     }
   };
 
@@ -135,7 +160,7 @@ const Fun = () => {
                 </div>
               </div>
               <div className='mx-3 ' >{'>> ' + item.command}</div>
-              <div className='mx-3' ref={targetRef}>{item.output}</div> {/* Render the output of the command */}
+              {item.output && <div className='mx-3' ref={targetRef}>{item.output}</div>}
             </div>
           ))}
         </div>
@@ -151,7 +176,6 @@ const Fun = () => {
         </div>
 
         <div className='m-2 mx-6'>
-       
           <input
             type='text'
             value={inputData}
@@ -160,7 +184,6 @@ const Fun = () => {
             onChange={(e) => setInputData(e.target.value)}
             onKeyDown={handleEnter}
           />
-      
         </div>
       </div>
     </>
