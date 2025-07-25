@@ -1,5 +1,5 @@
 .div{
-    background-image: url('./ubuntu.png');
+    background-image: url('/ubuntu.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

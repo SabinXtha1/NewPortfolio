@@ -7,9 +7,11 @@ import Contact from './Contact';
 import { useRouter } from 'next/navigation';
 
 
-const Fun = ({setyo}) => {
+const Fun = () => {
   const targetRef = useRef(null);
-  
+  const [filesName, setFilesName] = useState(["BIO", "CONTACT", "PROJECT", "SKILL"]);
+  const [directories, setDirectories] = useState([]);
+  const [currentDir, setCurrentDir] = useState('portfolio');
 
   useEffect(() => {
     // Scroll to the element when the component mounts
@@ -22,43 +24,67 @@ const Fun = ({setyo}) => {
  const router = useRouter()
   const handleEnter = (event) => {
     if (event.key === 'Enter') {
-      let command = inputData.toUpperCase();
+      const commandInput = inputData;
+      const commandParts = commandInput.trim().split(' ');
+      const command = commandParts[0].toUpperCase();
+      const argument = commandParts.length > 1 ? commandParts.slice(1).join(' ') : null;
+
       setInputData(''); 
 
       let output = null;
      
-      if(command.slice(0,2)==='CD'){
-       command = command.slice(3) 
-        console.log(command);
-        
-      }
-             if (command.slice(0,5) === 'SKILL') {
+      if (command === 'CD') {
+        const dir = argument ? argument.toUpperCase() : '';
+        if (dir === '..') {
+            setCurrentDir('portfolio');
+        } else if (directories.includes(dir)) {
+            setCurrentDir(dir);
+        } else if (filesName.includes(dir)) {
+            output = `cd: not a directory: ${dir}`;
+        } else {
+            output = `cd: no such file or directory: ${dir}`;
+        }
+      } else if (command === 'SKILL') {
         output = <Skill />;
-      } else if (command.slice(0,7) === 'CONTACT') {
+      } else if (command === 'CONTACT') {
         output = <Contact />;
-      } else if (command.slice(0,7) === 'PROJECT') {
+      } else if (command === 'PROJECT') {
         output = <Project />;
-      } else if (command.slice(0,8) === 'PERSONAL'||command==='BIO') {
+      } else if (command === 'PERSONAL' || command ==='BIO') {
         output = <Personal />;
-      } else if(command.slice(0,4)==='EXIT'){
-        setyo(false)
+      } else if(command ==='EXIT'){
            router.push('/')
-      } else if (command === 'LS') {
-        output = (
-          <div className='font-mono font-bold w-full'>
-            
-            <ul className='flex justify-between' >
-              <li><span className='text-yellow-500'>PROJECT</span></li>
-              <li><span className='text-yellow-500'>SKILL </span></li>
-              <li><span className='text-yellow-500'>CONTACT</span></li>
-              <li><span className='text-yellow-500'>PERSONAL/BIO</span></li>
-              <li><span className='text-yellow-500'>CLEAR</span></li>
-              <li><span className='text-yellow-500'>EXIT</span></li>
-            </ul>
-          </div>
-        );
+      } else if(command ==='MKDIR'){
+          const newFile = argument ? argument.toUpperCase() : null;
+          if (currentDir !== 'portfolio') {
+              output = 'mkdir: cannot create directory here.';
+          } else if (newFile) {
+            if ([...filesName, ...directories].includes(newFile)) {
+                output = `mkdir: cannot create directory ‘${newFile}’: File or directory exists`;
+            } else {
+                setDirectories(prev => [...prev, newFile]);
+                output = `Directory "${newFile}" created.`;
+            }
+          } else {
+              output = 'mkdir: missing operand';
+          }
+      } 
+      else if (command === 'LS') {
+        if (currentDir === 'portfolio') {
+            output = (
+              <div className='font-mono font-bold w-full'>
+                <ul className='flex flex-wrap justify-start gap-x-4' >
+                  {[...filesName, ...directories].map((file) => (
+                    <li key={file}><span className={directories.includes(file) ? 'text-blue-500' : 'text-yellow-500'}>{file}</span></li>
+                  ))}
+                </ul>
+              </div>
+            );
+        } else {
+            output = ''; // empty dir
+        }
       }
-      else if (command.slice(0,4) === 'HELP') {
+      else if (command === 'HELP') {
         output = (
           <div className='font-mono font-bold'>
             <h3 className='text-red-500'>Available Commands:</h3>
@@ -69,6 +95,9 @@ const Fun = ({setyo}) => {
               <li><span className='text-yellow-500'>PERSONAL/BIO</span> - Personal information</li>
               <li><span className='text-yellow-500'>CLEAR</span> - Clear the console</li>
               <li><span className='text-yellow-500'>EXIT</span> - To Exit Terminal</li>
+              <li><span className='text-yellow-500'>LS</span> - List directories</li>
+              <li><span className='text-yellow-500'>MKDIR [name]</span> - Create directory</li>
+              <li><span className='text-yellow-500'>CD [name]</span> - Change directory</li>
             </ul>
           </div>
         );
@@ -76,12 +105,12 @@ const Fun = ({setyo}) => {
         setOutputHistory([]); 
         return;
       } else {
-        output = 'Command not recognized. Type `help` for available commands.';
+        output = `Command not recognized: ${command}. Type 'help' for available commands.`;
       }
 
       setOutputHistory(prevOutput => [
         ...prevOutput,
-        { command, output } 
+        { command: commandInput, output } 
       ]);
     }
   };
@@ -98,7 +127,7 @@ const Fun = ({setyo}) => {
                     🍁 SABIN
                   </span>
                   <span className='bg-blue-500 p-2 px-3 rounded-2xl absolute left-[90px] z-30'>
-                    📂 portfolio
+                    📂 {currentDir}
                   </span>
                   <span className='bg-red-500 p-2 px-3 rounded-2xl absolute left-[190px] z-3'>
                     🧩 {item.command}
@@ -116,13 +145,13 @@ const Fun = ({setyo}) => {
               🍁 SABIN
             </span>
             <span className='bg-blue-500 p-2 px-3 rounded-2xl absolute left-[100px] z-30'>
-              📂 portfolio
+              📂 {currentDir}
             </span>
           </div> 
         </div>
 
         <div className='m-2 mx-6'>
-          {'$'}
+       
           <input
             type='text'
             value={inputData}
