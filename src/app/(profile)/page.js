@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import { motion, useInView, useScroll, useTransform } from "framer-motion"
 import { Github, Linkedin, Star, CircleDot, ExternalLink, Download } from "lucide-react"
-import { SiNextdotjs, SiPrisma, SiSupabase } from "react-icons/si"
+import { SiNextdotjs, SiPrisma, SiSupabase,SiMongodb ,SiMongoose} from "react-icons/si"
 import LogoWall from "../effect/items"
 import Link from "next/link"
 import JelloEffect from '../components/JelloEffect'
@@ -20,6 +20,7 @@ const TechIcon = ({ name, children, color = "text-white" }) => (
     <span className="text-xs font-medium">{name}</span>
   </motion.div>
 )
+
 
 
 
@@ -72,7 +73,28 @@ export default function Page() {
            icon: <SiNextdotjs className="text-white w-6 h-6" />,
          }
        ],
-     },
+     },{
+       name: 'NepBlog',
+       des: "It is a blog writing web app that allows you to create blog.",
+       url:'https://nepblog.vercel.app/',
+       src: '/nepblog.png',
+       technologies: [
+         {
+           name:'MongoDB',
+           icon:<SiMongodb className='text-green-400 w-6 h-6'/>
+           
+          },
+          {
+            name: 'Next.js',
+            icon: <SiNextdotjs className="text-white w-6 h-6" />,
+          }
+          ,
+          {
+          name:"Mongoose",
+          icon:<SiMongoose className='text-red-400 w-6 h-6'/>
+         }
+       ],
+     }
    ];
    
 
@@ -93,17 +115,14 @@ export default function Page() {
 
   return (
     <motion.div
-      className="min-h-screen md:mt-32 text-white bg-black"
+      className="min-h-screen md:mt-32 text-white px-10 bg-black"
       initial="hidden"
       animate={isLoaded ? "visible" : "hidden"}
       variants={backgroundVariants}
-      // style={{
-      //   backgroundImage: `radial-gradient(circle, rgba(6,128,212,0.3) 1px, transparent 1px)`,
-      //   backgroundRepeat: "repeat",
-      // }}
+      
     >
       {/* Hero Section */}
-      <motion.div className="relative pt-28  md:pt-20 pb-16 flex flex-col items-center justify-center" style={{ opacity }}>
+      <motion.div className="relative pt-20 md:pt-0 md:pb-14 h-screen     flex flex-col items-center justify-center" style={{ opacity }}>
         <motion.div
           className="absolute inset-0 -z-10"
           initial={{ opacity: 0 }}
@@ -122,14 +141,14 @@ export default function Page() {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <motion.div
-              className="relative w-[170px] h-[170px] flex-shrink-0"
+              className="relative w-[170px] h-[170px]  md:w-[250px] md:h-[250px] flex-shrink-0"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300, damping: 15 }}
             >
               <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-tr from-yellow-600 to-red-600 opacity-70"
+                className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-100 to-blue-900 opacity-70"
                 animate={{
-                  scale: [1, 1.05, 1],
+                  scale: [1, 1.03, 1.01],
                   rotate: [0, 5, 0, -5, 0],
                 }}
                 transition={{
@@ -138,25 +157,25 @@ export default function Page() {
                   repeatType: "reverse",
                 }}
               />
-              <div className='bio min-w-[170px] h-[170px] rounded-[50%] scale-95 overflow-hidden hover:scale-100 an  absolute -top-0'>  
+              <div className='bio min-w-[170px] h-[170px] md:w-[250px] md:h-[250px] rounded-[50%] scale-97 overflow-hidden hover:scale-100 an  absolute -top-0'>  
     
      </div>
             </motion.div>
 
             <div className="flex flex-col gap-4">
               <motion.h1
-                className="text-3xl md:text-4xl font-bold text-blue-100 flex  "
+                className="text-3xl md:text-4xl font-bold text-blue-100 flex leading-[1.5]  "
                 initial={{ opacity: 0, x: -20 }}
                 animate={bioInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-              <JelloEffect words={"Sabin Nayaju"}/>
+              <JelloEffect words={"Sabin Nayaju"} className="md:text-[55px]"/>
                 <span className=" text-red-400">
                   🪼</span>
               </motion.h1>
 
               <motion.p
-                className="text-gray-300 max-w-2xl"
+                className="text-gray-300 max-w-2xl md:text-[18px]"
                 initial={{ opacity: 0 }}
                 animate={bioInView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 }}

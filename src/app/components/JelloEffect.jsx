@@ -2,7 +2,7 @@ import React from 'react'
 
 const JelloEffect = ({ words, className }) => {
   const nameArray = words.split("");
-  console.log(nameArray);
+  
 
   return (
     <>
