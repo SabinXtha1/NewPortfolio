@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import { motion, useInView, useScroll, useTransform } from "framer-motion"
-import { Github, Linkedin, Star, CircleDot, ExternalLink, Download } from "lucide-react"
+import { Github, Linkedin, Star, CircleDot, ExternalLink, Download, Contact2Icon,MoveRight  } from "lucide-react"
 import { SiNextdotjs, SiPrisma, SiSupabase,SiMongodb ,SiMongoose} from "react-icons/si"
 import LogoWall from "../effect/items"
 import Link from "next/link"
@@ -164,12 +164,12 @@ export default function Page() {
 
             <div className="flex flex-col gap-4">
               <motion.h1
-                className="text-3xl md:text-4xl font-bold text-blue-100 flex leading-[1.5]  "
+                className="text-3xl md:text-4xl font-bold text-blue-100 flex leading-[1.5] "
                 initial={{ opacity: 0, x: -20 }}
                 animate={bioInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-              <JelloEffect words={"Sabin Nayaju"} className="md:text-[55px]"/>
+              <JelloEffect words={"Sabin Nayaju"} className="md:text-[55px]   font-bold bg-gradient-to-r from-blue-200 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient "/>
                 <span className=" text-red-400">
                   🪼</span>
               </motion.h1>
@@ -411,7 +411,10 @@ export default function Page() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             >
-            Contact Me
+              <span className="flex item-center gap-2">
+
+          <Contact2Icon className="inline-block "/>  Contact Me <MoveRight  className="inline-block mt-[1px] scale-90 hover:text-red-400 hover:scale-100"/>
+              </span>
           </motion.button>
             </Link>
         </motion.div>
