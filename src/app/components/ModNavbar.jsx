@@ -12,7 +12,7 @@ const navItems = [
   { label: "Home", href: "/" ,icon:<VscHome/>},
   { label: "Terminal", href: "/Terminal",icon:<Terminal/> },
   { label: "Contact", href: "/contact" ,icon:<Contact/>},
-  {label:"Skill",href:"/skill",icon:<SiHyperskill/>},
+  {label:"Skill",href:"#skill",icon:<SiHyperskill/>},
   
 ]
 

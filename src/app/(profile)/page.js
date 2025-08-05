@@ -8,6 +8,9 @@ import { SiNextdotjs, SiPrisma, SiSupabase,SiMongodb ,SiMongoose} from "react-ic
 import LogoWall from "../effect/items"
 import Link from "next/link"
 import JelloEffect from '../components/JelloEffect'
+import HeroSkill from "../components/SkillSection"
+// import PhysicsCursor from "../components/Cursor"
+
 
 // Tech stack icons
 const TechIcon = ({ name, children, color = "text-white" }) => (
@@ -87,6 +90,7 @@ export default function Page() {
           {
             name: 'Next.js',
             icon: <SiNextdotjs className="text-white w-6 h-6" />,
+            
           }
           ,
           {
@@ -115,24 +119,33 @@ export default function Page() {
 
   return (
     <motion.div
-      className="min-h-screen md:mt-32 text-white px-10 bg-black"
+      className="min-h-screen  text-white px-10 bg-black"
       initial="hidden"
       animate={isLoaded ? "visible" : "hidden"}
       variants={backgroundVariants}
       
     >
+       {/* <PhysicsCursor
+        speed={0.15} // Optional: cursor follow speed
+        hoverScale={1.5} // Optional: scale when hovering
+        size={40} // Optional: cursor size in pixels
+        color="#60a5fa" // Optional: primary color
+        hideDefaultCursor={true} // Optional: hide system cursor
+      /> */}
       {/* Hero Section */}
-      <motion.div className="relative pt-20 md:pt-0 md:pb-14 h-screen     flex flex-col items-center justify-center" style={{ opacity }}>
+      <motion.div className="relative  md:pb-14 h-screen     flex flex-col items-center justify-center" style={{ opacity }}>
         <motion.div
           className="absolute inset-0 -z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.2 }}
           transition={{ duration: 2 }}
         >
+          
           <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-transparent" />
         </motion.div>
 
         <div className="container px-4 md:px-6 max-w-6xl">
+          
           <motion.div
             ref={bioRef}
             className="flex flex-col md:flex-row items-center gap-8 mb-16"
@@ -164,20 +177,20 @@ export default function Page() {
 
             <div className="flex flex-col gap-4">
               <motion.h1
-                className="text-3xl md:text-4xl font-bold text-blue-100 flex leading-[1.5] "
+                className="text-3xl md:text-4xl font-bold text-blue-100 flex items-center leading-[1.2] "
                 initial={{ opacity: 0, x: -20 }}
                 animate={bioInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-              <JelloEffect words={"Sabin Nayaju"} className="md:text-[55px]   font-bold bg-gradient-to-r from-blue-200 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient "/>
+              <JelloEffect words={"Sabin Nayaju"} className="md:text-[50px] py-3   font-bold bg-gradient-to-r from-blue-200 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient "/>
                 <span className=" text-red-400">
                   🪼</span>
               </motion.h1>
 
               <motion.p
-                className="text-gray-300 max-w-2xl md:text-[18px]"
+                className="text-gray-300 max-w-2xl md:text-[18px] font-[600] tracking-wide "
                 initial={{ opacity: 0 }}
-                animate={bioInView ? { opacity: 1 } : {}}
+                animate={bioInView ? { opacity: 0.8 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
                 I&apos;m an 18-year-old full-stack developer from Nepal. I&apos;m currently learning Django, and have experience  in frontend development with Next.js, React, JavaScript, HTML, and CSS, as well as backend development with Node.js, Express, Prisma, and Mongoose for ORMs.
@@ -231,6 +244,11 @@ export default function Page() {
           </motion.div>
         </div>
       </motion.div>
+      <div id="skill"
+      >
+        
+      <HeroSkill />
+      </div>
 
       {/* Projects Section */}
       <motion.div

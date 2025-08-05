@@ -3,6 +3,18 @@
 @tailwind components;
 @tailwind utilities;
 
+.cursor-element {
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+
+.cursor-smooth {
+  transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
 *{
   margin: 0;
   padding: 0;

@@ -63,7 +63,7 @@ const page = () => {
         className="w-screen flex items-center justify-center flex-col font-serif gap-10 lg:h-screen md:h-screen lg:mt-10"
 
       >
-        <div className="w-[80%] gap-2 flex flex-col mt-[100px] lg:mt-0">
+        <div className="w-[80%] gap-2 flex flex-col">
           <h1 className="text-green-400 flex items-center gap-2">
             <Star className="text-green-400 " />
             <span className="text-3xl font-bold">Connect With Me</span>

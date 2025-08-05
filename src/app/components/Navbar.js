@@ -19,12 +19,7 @@ const Navbar = () => {
   ];
   return (
     <div className="fixed bottom-0 left-0 w-full flex justify-center z-50 ">
-      {/* <Dock 
-        items={items}
-        panelHeight={68}
-        baseItemSize={50}
-        magnification={70}
-     className='lg:hidden' /> */}
+    
      <div className=' lg:block'>
 
       <ModernNavbar />

@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
   
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black pt-[130.8px]`}
     >
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7853115776583128"
      crossOrigin="anonymous"></script>
@@ -41,8 +41,8 @@ export default function RootLayout({ children }) {
 
     
 
+       <Navbar/>
         {children}
-       <Navbar className=''/>
    
       </body>
     </html>
