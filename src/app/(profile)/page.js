@@ -159,7 +159,7 @@ export default function Page() {
         hideDefaultCursor={true} // Optional: hide system cursor
       /> */}
       {/* Hero Section */}
-      <motion.div className="relative  md:pb-14 md:h-screen     flex flex-col items-center justify-center" style={{ opacity }}>
+      <motion.div className="relative  md:pb-14 min-h-[600px] md:min-h-screen     flex flex-col items-center justify-center" style={{ opacity }}>
         <motion.div
           className="absolute inset-0 -z-10"
           initial={{ opacity: 0 }}
