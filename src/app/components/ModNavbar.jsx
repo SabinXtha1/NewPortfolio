@@ -15,12 +15,7 @@ const navItems = [
   { label: "Contact", href: "/contact", icon: <Contact /> },
   // {label:"Skill",href:"#skill",icon:<SiHyperskill/>},
 ]
-const heyList =[
-  "Hey",
-  "Hello",
-  "Hi"
-  
-]
+
 export default function ModernNavbar() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -84,7 +79,7 @@ export default function ModernNavbar() {
   Hey!
 </span>
         </div>
-<div className=" relative w-[70px] h-[70px] overflow-hidden hover:top-[35px]">
+<div className=" relative w-[70px] h-[70px] overflow-hidden group-hover:top-[35px]">
 
            <Image src="/head.png" alt="head" fill className="object-cover" />
 </div>
