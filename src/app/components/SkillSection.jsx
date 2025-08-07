@@ -101,7 +101,7 @@ const HeroSkill = () => {
      </div>
      <div className='flex justify-center  bottomUp '>
 
-     <JelloEffect words={"Tech Stack"} className={`font-serif text-4xl font-bold  mt-16 text-center`}/>
+     <JelloEffect words={"Tech      Stack"} className={`font-serif text-4xl font-bold  mt-16 text-center`}/>
      </div>
 
       <div className='mt-20 flex  justify-center '>

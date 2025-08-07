@@ -159,7 +159,7 @@ export default function Page() {
         hideDefaultCursor={true} // Optional: hide system cursor
       /> */}
       {/* Hero Section */}
-      <motion.div className="relative  md:pb-14 h-screen     flex flex-col items-center justify-center" style={{ opacity }}>
+      <motion.div className="relative  md:pb-14 md:h-screen     flex flex-col items-center justify-center" style={{ opacity }}>
         <motion.div
           className="absolute inset-0 -z-10"
           initial={{ opacity: 0 }}
@@ -447,7 +447,7 @@ export default function Page() {
           </motion.h2>
 <Link href={'/contact'}>
           <motion.button
-            className="px-8 py-3 bg-white text-black rounded-full text-lg font-medium hover:bg-gray-100 transition-colors"
+            className="px-4 md:px-8 py-3 bg-white text-black rounded-full text-lg font-medium hover:bg-gray-100 transition-colors"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={contactInView ? { scale: 1, opacity: 1 } : {}}
             href='/contact'

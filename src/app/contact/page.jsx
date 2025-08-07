@@ -11,6 +11,7 @@ import FAQ from '../components/Faq';
 import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
 
+
 const page = () => {
   const [loading, setloading] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -55,6 +56,7 @@ const page = () => {
 
   return (
     <div className="text-white overflow-x-hidden">
+
       {/* Connect With Me Section */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -70,9 +72,9 @@ const page = () => {
           </h1>
           <h1 className="text-white text-4xl">Let's Start A Project Together</h1>
         </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 w-[80%] gap-10">
           {/* Form */}
+          
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
