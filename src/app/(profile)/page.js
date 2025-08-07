@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import { motion, useInView, useScroll, useTransform } from "framer-motion"
-import { Github, Linkedin, Star, CircleDot, ExternalLink, Download, Contact2Icon,MoveRight  } from "lucide-react"
+import { Github, Linkedin, Star, CircleDot, ExternalLink, Download, Contact2Icon,MoveRight, Mail  } from "lucide-react"
 import { SiNextdotjs, SiPrisma, SiSupabase,SiMongodb ,SiMongoose} from "react-icons/si"
 import LogoWall from "../effect/items"
 import Link from "next/link"
@@ -98,6 +98,32 @@ export default function Page() {
           icon:<SiMongoose className='text-red-400 w-6 h-6'/>
          }
        ],
+     },{
+      name:"Ward 2",
+      des:"It is a web app that allows you to create,upadte,delete post ,manage your ward people , give them notice information via email on one click of ward mayor and reliable access to user details.",
+      url:'https://ward-2.vercel.app/',
+      src:'/wa.png',
+       technologies: [
+         {
+           name:'MongoDB',
+           icon:<SiMongodb className='text-green-400 w-6 h-6'/>
+           
+          },
+          {
+            name: 'Next.js',
+            icon: <SiNextdotjs className="text-white w-6 h-6" />,
+            
+          }
+          ,
+          {
+          name:"Mongoose",
+          icon:<SiMongoose className='text-red-400 w-6 h-6'/>
+         },{
+          name:"MailTo",
+          icon:<Mail className='text-blue-500 w-6 h-6'/>
+         }
+       ]
+
      }
    ];
    

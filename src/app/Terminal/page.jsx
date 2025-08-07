@@ -26,7 +26,7 @@ const Page = () => {
 
   return (
     <div>
-    <div className="div w-screen h-screen flex items-center justify-center text-white ">
+    <div className="div w-screen h-screen flex items-center justify-center text-white -mt-[130.8px]">
       <div className='absolute z-50 top-1 m-2 cursor-default bg-violet-600 p-2 rounded md:hidden lg:hidden flex justify-center items-center'>
         <CiWarning className='w-[30px] h-[30px] mr-1'/>
 

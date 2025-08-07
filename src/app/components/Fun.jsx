@@ -179,7 +179,7 @@ const Fun = () => {
           <input
             type='text'
             value={inputData}
-            placeholder='try `help` for viewing all commands'
+            placeholder='>try `help` for viewing all commands'
             className='bg-transparent p-3 border-none focus:border-transparent outline-none w-[50%]'
             onChange={(e) => setInputData(e.target.value)}
             onKeyDown={handleEnter}
