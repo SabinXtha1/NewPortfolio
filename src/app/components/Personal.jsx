@@ -73,7 +73,7 @@ const Personal = () => {
          <span className='cursor-pointer'>
           @SabinXtha1
           </span>
-          </Link> <a href='/cv.pdf' target='_blank' className='px-4 py-2 bg-white text-black rounded-2xl text-center   mt-3  w-[150px] hover:text-white hover:bg-red-500 shadow-sm shadow-white font-serif font-bold '  >
+          </Link> <a href='/cvs.pdf' target='_blank' className='px-4 py-2 bg-white text-black rounded-2xl text-center   mt-3  w-[150px] hover:text-white hover:bg-red-500 shadow-sm shadow-white font-serif font-bold '  >
             My Resume
           </a>
       

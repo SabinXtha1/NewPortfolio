@@ -231,7 +231,7 @@ export default function Page() {
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
                 <motion.a
-                  href="/cv.pdf"
+                  href="/cvs.pdf"
                   target="_blank"
                   className="flex items-center gap-2 px-4 py-2 bg-white text-black rounded-full font-medium hover:bg-blue-100 transition-colors"
                   whileHover={{ scale: 1.05 }}
