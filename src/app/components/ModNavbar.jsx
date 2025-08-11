@@ -26,7 +26,7 @@ export default function ModernNavbar() {
     const handleScroll = () => {
       const currentY = window.scrollY
       if (currentY > lastScrollY && currentY > 80) {
-        controls.start({ y: -100 }) // hide
+        controls.start({ y: -150 }) // hide
       } else {
         controls.start({ y: 0 }) // show
       }
@@ -66,7 +66,7 @@ export default function ModernNavbar() {
         className="fixed top-4 left-0 right-0 z-[999] mx-auto w-[90vw] md:w-[80vw] lg:w-[70vw]"
       >
         <div className="relative bg-black/40 backdrop-blur-md border flex justify-between items-center border-white/10 rounded-3xl shadow-xl px-6 py-4">
-       <div className="h-full min-w-[30%] overflow-hidden relative">
+       <div className="h-full min-w-[50%] md:min-w-[30%] overflow-hidden relative">
        
        <div className="group">
 

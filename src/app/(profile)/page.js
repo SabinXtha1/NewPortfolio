@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import { motion, useInView, useScroll, useTransform } from "framer-motion"
-import { Github, Linkedin, Star, CircleDot, ExternalLink, Download, Contact2Icon,MoveRight, Mail  } from "lucide-react"
+import { Github, Linkedin, Star, CircleDot, ExternalLink, Download, Contact2Icon,MoveRight, Mail, Settings2, SettingsIcon, Volume2, VolumeOff  } from "lucide-react"
 import { SiNextdotjs, SiPrisma, SiSupabase,SiMongodb ,SiMongoose} from "react-icons/si"
 import LogoWall from "../effect/items"
 import Link from "next/link"
@@ -41,10 +41,22 @@ export default function Page() {
   const contactInView = useInView(contactRef, { once: true, amount: 0.5 })
 
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.2])
-
+  const [openSet, setopenSet] = useState(false)
+  const [openMusic, setopenMusic] = useState(false)
+  const audioRef = useRef()
   useEffect(() => {
     setIsLoaded(true)
   }, [])
+  useEffect(() => {
+    if(openMusic){
+      audioRef.current.play()
+
+    }else{
+      audioRef.current.pause()
+
+    }
+  }, [openMusic,setopenMusic])
+  
 
    const projects = [
      {
@@ -151,6 +163,8 @@ export default function Page() {
       variants={backgroundVariants}
       
     >
+      <audio src="/potmusic.mp3" ref={audioRef} loop/>
+
        {/* <PhysicsCursor
         speed={0.15} // Optional: cursor follow speed
         hoverScale={1.5} // Optional: scale when hovering
@@ -208,13 +222,13 @@ export default function Page() {
                 animate={bioInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-              <JelloEffect words={"Sabin Nayaju"} className="md:text-[50px] py-3   font-bold bg-gradient-to-r from-blue-200 via-blue-500 to-green-400 text-transparent bg-clip-text animate-gradient "/>
+              <JelloEffect words={"Sabin Nayaju"} className="md:text-[50px] py-3   font-bold text-white text-transparent bg-clip-text animate-gradient "/>
                 <span className=" text-red-400">
                   🪼</span>
               </motion.h1>
 
               <motion.p
-                className="text-gray-300 max-w-2xl md:text-[18px] font-[600] tracking-wide "
+                className="text-white max-w-2xl md:text-[18px] font-[600] tracking-wide "
                 initial={{ opacity: 0 }}
                 animate={bioInView ? { opacity: 0.8 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 }}
@@ -264,6 +278,27 @@ export default function Page() {
                   >
                     <Linkedin className="w-5 h-5 text-blue-500" />
                   </motion.a>
+                  <motion.a className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors">
+
+                  <SettingsIcon onClick={()=>setopenSet(!openSet)}  className={`w-5 h-5 text-white  duration-100   ${openSet ? 'animate-fontRot' : 'animate-backRot'}`}  />
+                  </motion.a>
+                  {
+                    openSet && (
+                       <motion.a className={`flex items-center justify-center w-10 h-10 rounded-full  transition-colors ${openSet ? 'animate-leftEntry' : 'animate-rightEntry'} `}>
+
+
+{
+  openMusic ?
+                  <Volume2 onClick={()=>setopenMusic(!openMusic)}  className={`w-5 h-5 text-white  duration-100  `}  /> : <VolumeOff onClick={()=>setopenMusic(!openMusic)}  className={`w-5 h-5 text-white  duration-100   `}  /> 
+}
+                  </motion.a>
+                    )
+                  }
+
+
+
+
+
                 </div>
               </motion.div>
             </div>
@@ -425,15 +460,18 @@ export default function Page() {
           animate={contactInView ? { y: 0, opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
         >
+          <Link href={'/contact'}>
+
           <motion.div
             className="inline-flex items-center gap-2 text-lg text-emerald-400 mb-4"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={contactInView ? { scale: 1, opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-          >
+            >
             <CircleDot className="h-5 w-5 animate-pulse" />
             Available for work
           </motion.div>
+            </Link>
 
           <motion.h2
             className="text-3xl md:text-5xl font-bold mb-8"

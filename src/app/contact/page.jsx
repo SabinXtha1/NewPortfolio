@@ -128,10 +128,13 @@ const page = () => {
           >
             <div className="bg-gray-900 rounded-xl p-4" style={{ backgroundColor: 'rgb(17,17,22)' }}>
               <div>
+                <Link href={"mailto:raj123nayaju@gmail.com"}>
+
                 <span className="rounded-xl flex relative items-center">
                   <Dot className="text-green-400 w-20 h-20 animate-pulse absolute -left-5 -top-5 opacity-70" />
                   <Dot className="text-green-400 w-10 h-10 animate-pulse" /> Available For Work
                 </span>
+                </Link>
               </div>
               <div className="sn w-20 h-20 rounded-full m-4"></div>
               <p className="p-4 opacity-70 font-serif font-extralight">
