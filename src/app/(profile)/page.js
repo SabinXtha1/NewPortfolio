@@ -173,7 +173,7 @@ export default function Page() {
         hideDefaultCursor={true} // Optional: hide system cursor
       /> */}
       {/* Hero Section */}
-      <motion.div className="relative  md:pb-14 min-h-screen     flex flex-col items-center justify-center" style={{ opacity }}>
+      <motion.div className="relative  md:pb-14 min-h-[600px] md:min-h-screen     flex flex-col items-center justify-center" style={{ opacity }}>
         <motion.div
           className="absolute inset-0 -z-10"
           initial={{ opacity: 0 }}
@@ -228,7 +228,7 @@ export default function Page() {
               </motion.h1>
 
               <motion.p
-                className="text-white max-w-2xl md:text-[18px] font-[600] tracking-wide "
+                className=" text-transparent bg-gradient-to-t from-slate-600 via-white to-white bg-clip-text max-w-2xl md:text-[18px] font-[600] tracking-wide  "
                 initial={{ opacity: 0 }}
                 animate={bioInView ? { opacity: 0.8 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 }}
@@ -278,9 +278,9 @@ export default function Page() {
                   >
                     <Linkedin className="w-5 h-5 text-blue-500" />
                   </motion.a>
-                  <motion.a className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors">
+                  <motion.a onClick={()=>setopenSet(!openSet)} className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 transition-colors">
 
-                  <SettingsIcon onClick={()=>setopenSet(!openSet)}  className={`w-5 h-5 text-white  duration-100   ${openSet ? 'animate-fontRot' : 'animate-backRot'}`}  />
+                  <SettingsIcon   className={`w-5 h-5 text-white  duration-100   ${openSet ? 'animate-fontRot' : 'animate-backRot'}`}  />
                   </motion.a>
                   {
                     openSet && (
@@ -336,12 +336,14 @@ export default function Page() {
           </motion.div>
 
           <motion.h2
-            className="text-4xl md:text-5xl font-bold"
+            className="text-4xl md:text-5xl font-bold "
             initial={{ y: 20, opacity: 0 }}
             animate={projectsInView ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Crafting Ideas
+            Crafting<span className="bg-white text-black ml-1 px-2 rounded-lg">
+               Ideas
+              </span>
           </motion.h2>
         </motion.div>
 
@@ -483,19 +485,20 @@ export default function Page() {
             <br />
             big idea.
           </motion.h2>
-<Link href={'/contact'}>
+<Link href={'/contact'} className="group">
           <motion.button
-            className="px-4 md:px-8 py-3 bg-white text-black rounded-full text-lg font-medium hover:bg-gray-100 transition-colors"
+            className="px-5 md:px-5 py-4 bg-black relative   text-white rounded-full text-lg   transition-colors tracking-wider font-semibold"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={contactInView ? { scale: 1, opacity: 1 } : {}}
             href='/contact'
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.2 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             >
+              <div className="absolute bg-gradient-to-l from-transparent via-blue-500 to-transparent  -bottom-px inset-x-5 h-[1px] "></div>
               <span className="flex item-center gap-2">
 
-          <Contact2Icon className="inline-block "/>  Contact Me <MoveRight  className="inline-block mt-[1px] scale-90 hover:text-red-400 hover:scale-100"/>
+          <Contact2Icon className="inline-block  "/>  Contact Me <MoveRight  className="inline-block mt-[1px] scale-90 group-hover:animate-pulse "/>
               </span>
           </motion.button>
             </Link>
