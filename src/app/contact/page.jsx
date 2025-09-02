@@ -144,12 +144,12 @@ const page = () => {
 
               {/* Socials */}
               <div className="flex gap-4 mt-4">
-                <Link href="https://github.com/raj123nayaju" target="_blank">
+                <Link href="https://www.linkedin.com/in/sabin-nayaju-72438a204" target="_blank">
                   <span className="social-icon">
                     <FaGithub />
                   </span>
                 </Link>
-                <Link href="https://www.linkedin.com/in/raj123nayaju" target="_blank">
+                <Link href="https://www.linkedin.com/in/sabin-nayaju-72438a204" target="_blank">
                   <span className="social-icon">
                     <FaLinkedin />
                   </span>

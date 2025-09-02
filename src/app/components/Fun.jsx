@@ -159,7 +159,7 @@ const Fun = () => {
                   </span>
                 </div>
               </div>
-              <div className='mx-3 ' >{'>> ' + item.command}</div>
+              <div className='mx-3 ' >{'> ' + item.command}</div>
               {item.output && <div className='mx-3' ref={targetRef}>{item.output}</div>}
             </div>
           ))}
@@ -176,10 +176,11 @@ const Fun = () => {
         </div>
 
         <div className='m-2 mx-6'>
+          {">"}
           <input
             type='text'
             value={inputData}
-            placeholder='>try `help` for viewing all commands'
+            placeholder='try `help` for viewing all commands'
             className='bg-transparent p-3 border-none focus:border-transparent outline-none w-[50%]'
             onChange={(e) => setInputData(e.target.value)}
             onKeyDown={handleEnter}

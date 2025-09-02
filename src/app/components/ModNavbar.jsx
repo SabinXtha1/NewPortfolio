@@ -69,6 +69,7 @@ export default function ModernNavbar() {
        <div className="h-full min-w-[50%] md:min-w-[30%] overflow-hidden relative">
        
        <div className="group">
+        <Link href="/">
 
  <div className="absolute left-16 top-4 animate-bounce">
 
@@ -83,6 +84,7 @@ export default function ModernNavbar() {
 
            <Image src="/head.png" alt="head" fill className="object-cover" />
 </div>
+        </Link>
        </div>
 
 
