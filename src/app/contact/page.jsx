@@ -62,7 +62,7 @@ const page = () => {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="w-screen flex items-center justify-center flex-col font-serif gap-10 lg:h-screen md:h-screen lg:mt-10"
+        className="w-screen flex items-center justify-center flex-col font-serif gap-10 lg:h-screen min-h-[700px] md:h-screen lg:mt-10"
 
       >
         <div className="w-[80%] gap-2 flex flex-col">

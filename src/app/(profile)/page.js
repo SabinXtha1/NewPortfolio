@@ -233,7 +233,7 @@ export default function Page() {
                 animate={bioInView ? { opacity: 0.8 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                I&apos;m an 18-year-old full-stack developer from Nepal. I&apos;m currently learning Django, and have experience  in frontend development with Next.js, React, JavaScript, HTML, and CSS, as well as backend development with Node.js, Express, Prisma, and Mongoose for ORMs.
+                I&apos;m an 20-year-old full-stack developer from Nepal. I&apos;m currently learning Django, and have experience  in frontend development with Next.js, React, JavaScript, HTML, and CSS, as well as backend development with Node.js, Express, Prisma, and Mongoose for ORMs.
                 
                 
               </motion.p>

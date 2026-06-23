@@ -26,7 +26,7 @@ export default function ModernNavbar() {
     const handleScroll = () => {
       const currentY = window.scrollY
       if (currentY > lastScrollY && currentY > 80) {
-        controls.start({ y: -150 }) // hide
+        controls.start({ y: -120 }) // hide
       } else {
         controls.start({ y: 0 }) // show
       }
@@ -121,7 +121,7 @@ export default function ModernNavbar() {
           </div>
 
           {/* Mobile Nav Header */}
-          <div className="flex md:hidden justify-between items-center font-serif ">
+          <div className="flex md:hidden justify-between items-center font-serif text-2xl ">
             <div className="flex items-center gap-2">
               {/* <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-blue-800 rounded-lg flex items-center justify-center">
                 {
@@ -130,7 +130,7 @@ export default function ModernNavbar() {
                 <VscHome className="w-4 h-4 text-white" />
                 }
               </div> */}
-              <span className="text-white font-medium tracking-wide text-2xl ">
+              <span className="text-white font-medium tracking-wide  ">
               {
                 pathname === "/contact" ? "Contact" : "Portfolio"
 

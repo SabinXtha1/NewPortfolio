@@ -65,6 +65,10 @@ const HeroSkill = () => {
   {
     techName:"GitHub",
     techLogo:<FaGithub className='text-white w-[100px] h-[100px] rounded-2xl'/>
+  }, {
+    techName:"Affinity Designer",
+    techLogo:<img src='/affinity.png' alt='Affinity Designer' className=' w-[150px] h-[150px] rounded-2xl'/>
+
   },{
     techName:"Postman",
     techLogo:<SiPostman className='text-orange-600 w-[100px] h-[100px] rounded-2xl'/>
